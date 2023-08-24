@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank USSD prompt</title>
+</head>
+
+<body>
+    <script>
+        let ussd = "*901#";
+        let pin = 1111;
+        let ussdCheck = prompt("Enter your Bank USSD");
+        if (ussdCheck === ussd) {
+            let option = Number(prompt(`Access Bank
+            1.> Check balance
+            2.> Transfer
+            3.> Airtime
+            4.> Buy Data
+            5.> Pay Bills
+            6.> Enquiry Service
+            0.> Next page  
+            `))
+
+            //Option 1 (Check Balance)
+            if (option === 1) {
+                let accountType = Number(prompt("Select your Account \n 1> 00XXXXX006 \n 2> 15XXXXX006"));
+                if (accountType === 1) {
+                    alert(" Retrieving Balance ... An SMS will be sent to you shortly");
+                }
+                else if (accountType === 2) {
+                    alert(" Retrieving Balance ... An SMS will be sent to you shortly");
+                }
+                else {
+                    alert("Error. select a valid option");
+                }
+            }
+            //-------------------------------------------------
+            //Option 2 (Transfer)
+            if (option === 2) {
+                let accountNumber = Number(prompt("Enter Account Number"));
+                let selectBank = Number(prompt("Select Bank \n 1.> Union Bank \n2.> First Bank \n3.> FCMB"));
+                if (selectBank === 1) {
+                    let amount = Number(prompt("Enter Amount"));
+
+                    let pinCheck = Number(prompt("Enter Pin"));
+                    if (pinCheck === pin) {
+                        alert(`You have Successfully Transferred #${amount}.00 to ${accountNumber}`);
+                    }
+                    else {
+                        alert("Wrong Pin");
+                    }
+                }
+                else if (selectBank === 2) {
+                    let amount = Number(prompt("Enter Amount"));
+
+                    let pinCheck = Number(prompt("Enter Pin"));
+                    if (pinCheck === pin) {
+                        alert(`You have Successfully Transferred #${amount}.00 to ${accountNumber}`);
+                    }
+                    else {
+                        alert("Wrong Pin");
+                    }
+                }
+                else if (selectBank === 3) {
+                    let amount = Number(prompt("Enter Amount"));
+
+                    let pinCheck = Number(prompt("Enter Pin"));
+                    if (pinCheck === pin) {
+                        alert(`You have Successfully Transferred #${amount}.00 to ${accountNumber}`);
+                    }
+                    else {
+                        alert("Wrong Pin");
+                    }
+                }
+                else {
+                    alert("Error. select a valid option");
+                }
+            }
+            //------------------------------------------
+            // Option 3 (Airtime)
+            if (option === 3) {
+                let airtimeType = Number(prompt(" 1.> Self\n 2.> Others"));
+                //airtime to self
+                if (airtimeType === 1) {
+                    let amount = Number(prompt("Enter Amount"));
+                    alert(`You sent #${amount}.00 to your line`);
+                }
+                //airtime to others
+                else if (airtimeType === 2) {
+                    let mobileNumber = Number(prompt("Enter Number"));
+                    let amount = Number(prompt("Enter Amount"));
+                    alert(`You sent #${amount}.00 to +234${mobileNumber}`);
+                }
+                else {
+                    alert("Error. select a valid option");
+                }
+            }
+            //-------------------------------------------------
+
+        }
+        //If USSD is wrong
+        else {
+            alert("Connection Problem or invalid MMI code");
+        }
+    </script>
+</body>
+
+</html>

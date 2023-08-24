@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM bank prompt</title>
+</head>
+<body>
+    <script>
+        let pin=1111;
+        let userPin=Number(prompt("Please enter your pin: "));
+        //if pin is correct
+        if(userPin === pin){
+            let option = Number(prompt(`Welcome Lee,
+            4.>QuickTeller                      1.>Withdrawal
+            5.>Send Money                   2.>Check Balance
+            6.>Deposit                          3.>CHange Pin`));
+
+            //if Option 1 is selected (Withdrawal)
+            if(option === 1){
+                let accountType = Number(prompt("Select Account type  \n 1.> Savings \n2.> Current"))
+            //-----------------------------------------------------
+                if(accountType === 1){
+                    let amount = Number(prompt(`Select amount
+                    3.> 5000             1.> 1000
+                    4.> 10000            2.> 2000   
+                    `));
+                
+                if(amount === 1){
+                    alert(`Please wait...........
+                    take your cash  ` );
+                }
+            }
+            //-------------------------------------------------------
+            else if(accountType === 2){
+                let amount = Number(prompt(`Select amount
+                    3.> 5000             1.> 1000
+                    4.> 10000            2.> 2000   
+                    `));
+                
+                if(amount === 1){
+                    alert(`Please wait...........
+                    take your cash  ` );
+                }
+            }
+            //-------------------------------------------------
+            else{
+                alert("Choose a valid option");
+            }
+        }
+
+        //if Option 2 is Selected (Check Balance)
+        if (option === 2){
+            let accountType = Number(prompt("Select account type \n1.> Savings \n2.> Current"));
+            if (accountType === 1){
+                alert(" 208XXXXXXXX42 \n #23,000,000.00");
+            }
+            else if (accountType === 2){
+                alert(" 208XXXXXXXX89 \n #1,000,000,.00");
+            }
+            else{
+                alert("Choose a valid option");
+            }
+        }
+        //-------------------------------------------------------
+        // if Option 3 is selected (Change PIN)
+        if(option === 3){
+            let pinCheck = Number(prompt("Enter Old Pin "));
+            //--------- pin Check-------------
+            if(pinCheck === pin){
+                let newPin = Number(prompt("Enter New Pin"));
+                alert("PIN changed successfully ");
+            }
+            else{
+                alert("Old pin incorrect");
+            }
+        }
+
+        }
+        // When wrong pin is entered
+        else{
+            alert("incorrect pin");
+        }
+    </script>
+</body>
+</html>
